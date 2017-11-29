@@ -1,6 +1,9 @@
 from django.conf.urls import url
-from portal.views import *
+from django.conf.urls import url,include
+import views
 
 urlpatterns = [
-    url(r'student/(?P<pk>[0-9]{1})$', register),
+    url(r'^login/', views.index),
+    url(r'^accounts/profile/',views.profile,name='profile')
+    
 ]

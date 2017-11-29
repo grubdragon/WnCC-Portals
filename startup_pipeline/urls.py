@@ -19,4 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^internships/', include('portal.urls')),
+    url(r'^api/v1/',include('social_django.urls',namespace='social')),
+    
 ]

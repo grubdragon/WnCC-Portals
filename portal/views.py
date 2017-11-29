@@ -7,18 +7,23 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render
 
 # Create your views here.
+
 @login_required
-def register(request):
-    pk = request.user
-    instance = get_object_or_404(Student, id=pk)
+def profile(request):
+    pk = request.user.email
+    print pk
     
     if request.method == 'POST': #It is better to explicitly check for method instead of the dictionary
-        form = StudentForm(request.POST, instance=instance) #No need of the 
+        #form = StudentForm(request.POST, instance=instance) #No need of the 
+        form = StudentForm()
         if form.is_valid():
             form.save()
             return render(request , 'registration/register.html',{'form':form})
 
     
     else:
-        form = StudentForm(instance=instance)
+        form = StudentForm()
         return render(request , 'registration/register.html',{'form':form})
+
+def index(request):
+    return render(request,'index.html')
