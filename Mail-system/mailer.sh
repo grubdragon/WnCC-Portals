@@ -1,0 +1,1 @@
+mail -s "$(echo -e "This is Subject\nContent-Type: text/html")"  $1  <  emailTemp.html
