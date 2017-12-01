@@ -4,25 +4,28 @@ from forms import StudentForm
 from models import Student
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
-from django.shortcuts import render
+from django.shortcuts import render,reverse,redirect
 
 # Create your views here.
 
 @login_required
 def profile(request):
-    pk = request.user.email
-    print pk
-    
-    if request.method == 'POST': #It is better to explicitly check for method instead of the dictionary
-        #form = StudentForm(request.POST, instance=instance) #No need of the 
-        form = StudentForm()
+    name = request.user.first_name +' ' + request.user.last_name
+    email = request.user.email
+    try:
+        student=Student.objects.get(name=name,email=email,mode_of_login='G')
+    except Student.DoesNotExist:
+        student = Student.objects.create(name=name,email=email,mode_of_login='G')
+        
+    if request.method == 'POST':
+        form = StudentForm(request.POST, instance=student) 
         if form.is_valid():
             form.save()
-            return render(request , 'registration/register.html',{'form':form})
+            return redirect(reverse('login'))
 
     
     else:
-        form = StudentForm()
+        form = StudentForm(instance=student)
         return render(request , 'registration/register.html',{'form':form})
 
 def index(request):
