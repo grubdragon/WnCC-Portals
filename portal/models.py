@@ -21,14 +21,18 @@ class Student(models.Model):
 
     YEAR_CHOICES=[(c,c) for c in [1,2,3,4,5]]
     PROGRAM_CHOICES=[(c,c) for c in['Bachelors','Masters','Doctorate','Post-Doctorate']]
-
+    LOGIN_CHOICES = [
+            ('S','SSO'),
+            ('G','Google'),
+            ('L','LinkedIn'),
+        ]
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=50)
-    mode_of_login = models.CharField(max_length=10,default='SSO')
+    mode_of_login = models.CharField(max_length=1,choices=LOGIN_CHOICES,default='S')
     college_name = models.CharField(max_length=200)
     contact_no = models.CharField(max_length=10)
     email = models.EmailField()
-    year = models.IntegerField(choices=YEAR_CHOICES)
+    year = models.IntegerField(choices=YEAR_CHOICES,default=1)
     programme_of_study = models.CharField(max_length=20,choices=PROGRAM_CHOICES,null=True)
     resume = models.URLField(blank=True)
     github = models.URLField(blank=True)
