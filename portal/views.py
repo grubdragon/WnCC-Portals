@@ -16,7 +16,7 @@ def profile(request):
         student=Student.objects.get(name=name,email=email,mode_of_login='G')
     except Student.DoesNotExist:
         student = Student.objects.create(name=name,email=email,mode_of_login='G')
-        
+
     if request.method == 'POST':
         form = StudentForm(request.POST, instance=student) 
         if form.is_valid():

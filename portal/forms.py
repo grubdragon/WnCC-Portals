@@ -60,6 +60,30 @@ class StudentForm(forms.ModelForm):
     class Meta:
 
         model = Student
-        exclude = ['mode_of_login','available']
+        exclude = ['mode_of_login']
+
+    def __init__(self, *args, **kwargs):
+        super(StudentForm, self).__init__(*args, **kwargs)
+        instance = getattr(self, 'instance', None)
+        if instance and instance.name:
+            self.fields['name'].widget.attrs['readonly'] = True
+        if instance and instance.email:
+            self.fields['email'].widget.attrs['readonly'] = True
         
-    
+
+
+
+    def clean_name(self):
+        instance = getattr(self,'instance',None)
+        if instance and instance.name:
+            return instance.name
+        else:
+            return self.cleaned_data['name']
+        
+    def clean_email(self):
+        instance = getattr(self,'instance',None)
+        if instance and instance.email:
+            return instance.email
+        else:
+            return self.cleaned_data['email']
+        
