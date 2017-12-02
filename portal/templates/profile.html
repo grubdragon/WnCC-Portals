@@ -42,6 +42,15 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			document.getElementById("program").value = response.program;
         }
     }
+    
+    $('btnEdit').click(function() {
+    	$("input[name='phone number']").removeAttr("readonly");
+    	$("input[name='college']").removeAttr("readonly");
+    	$("input[name='program']").removeAttr("readonly");
+    	$("input[name='year']").removeAttr("readonly");
+    	$("input[name='interest']").removeAttr("onclick");
+    	
+    });
     */
 </script>
 
@@ -78,6 +87,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 				<input type="text" name="college" id="college" placeholder="Which college are you from?" required="" value="{{student.college}}" readonly="true"/>
 			</span>
 	</li>
+	
 	<li>
 		<label class="w3ls-opt">Program<span class="w3ls-star"> * </span></label>	
 			<span class="w3ls-text w3ls-name">
@@ -101,7 +111,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<li>
 		<label class="w3ls-opt">Year<span class="w3ls-star"> * </span></label>	
 			<span class="w3ls-text w3ls-name">
-				<input type="text" name="phone number" placeholder="Which Year are you in? (First, Second, Third..)" required="" value="{{student.year}}"
+				<input type="text" name="year" placeholder="Which Year are you in? (First, Second, Third..)" required="" value="{{student.year}}"
 				readonly="true"/>
 			</span>
 	</li>
@@ -109,8 +119,8 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		<label class="w3ls-opt">Interests and Strengths <span class="w3ls-star"> * </span> </label>
 		<div class="boxes">
 			{% for interest in student.interests.all %}
-		  		<input type="checkbox" id="box-1" checked onclick="return false;">
-		  		<label for="box-1">{{interest.gig}}</label>
+		  		<input type="checkbox" name="interest" id="box-{{interest.gig}}" checked onclick="return false;">
+		  		<label for="box-{{interest.gig}}">{{interest.gig}}</label>
 		  	{% endfor %}
 		  <!--
 		  <input type="checkbox" id="box-2" checked>
@@ -136,8 +146,10 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	
 </ul>
 <div class="clear"></div>
-<a href='form.html'>
-<button style="font-size: 15px;
+<a href="/internships/accounts/edit/">
+<button
+		
+ style="font-size: 15px;
 text-align: center;
 text-transform: uppercase;
 letter-spacing: 2px;

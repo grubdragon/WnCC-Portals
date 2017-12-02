@@ -4,6 +4,8 @@ import views
 
 urlpatterns = [
     url(r'^login/', views.index,name='login'),
-    url(r'^accounts/profile/',views.profile,name='profile')
+    url(r'^accounts/profile/',views.profile,name='profile'),
+    url(r'^accounts/edit/',views.edit,name='edit'),
+    
     
 ]
