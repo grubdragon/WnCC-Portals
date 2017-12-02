@@ -26,7 +26,7 @@ def profile(request):
     
     else:
         form = StudentForm(instance=student)
-        return render(request , 'registration/register.html',{'form':form})
+        return render(request , 'profile.html',{'student':student})
 
 def index(request):
-    return render(request,'index.html')
+    return render(request,'login.html')
