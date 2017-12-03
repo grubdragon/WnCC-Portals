@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from models import Student,Tag
 from django.utils.translation import ugettext_lazy as _
  
+'''
  #Form for  Registration
 class RegistrationForm(forms.Form):
     
@@ -27,7 +28,7 @@ class RegistrationForm(forms.Form):
     about = forms.CharField(widget=forms.Textarea,required=False)
     interests = forms.MultipleChoiceField(choices=Tag.objects.all(), widget=forms.CheckboxSelectMultiple,
     )
-    '''
+    
     def clean_username(self):
         try:
             user = User.objects.get(username__iexact=self.cleaned_data['username'])
