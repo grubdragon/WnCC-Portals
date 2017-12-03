@@ -40,7 +40,7 @@ class Student(models.Model):
     work_experience = models.TextField(blank=True)
     about =  models.TextField(blank=True)
     interests = models.ManyToManyField(Tag)
-    avaiable = models.BooleanField(default=True)
+    available = models.BooleanField(default=True)
 
     class Meta:
         verbose_name = "Student"

@@ -23,7 +23,7 @@ def profile(request):
         #return render(request , 'reg.html',{'form':form})
         if form.is_valid():
             form.save()
-            return redirect(reverse('login'))
+            return redirect(reverse('profile'))
 
     
     else:

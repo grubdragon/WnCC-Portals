@@ -68,7 +68,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		</div>
 	</li>
 	<li>
-		<label class="w3ls-opt">Phone Number<span class="w3ls-star"> * </span></label>	
+		<label class="w3ls-opt">Contact Number<span class="w3ls-star"> * </span></label>	
 			<span class="w3ls-text w3ls-name">
 				<input type="text" name="phone number" id="number" placeholder="Phone Number" required="" value="{{student.contact_no}}" readonly="true" />
 			</span>
@@ -111,10 +111,35 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<li>
 		<label class="w3ls-opt">Year<span class="w3ls-star"> * </span></label>	
 			<span class="w3ls-text w3ls-name">
-				<input type="text" name="year" placeholder="Which Year are you in? (First, Second, Third..)" required="" value="{{student.year}}"
+				<input type="text" name="year" placeholder="Which Year are you in? (1,2,3...)" required="" value="{{student.year}}"
 				readonly="true"/>
 			</span>
 	</li>
+
+	<li>
+		<label class="w3ls-opt">Resume<span class="w3ls-star"> * </span></label>	
+			<span class="w3ls-text w3ls-name">
+				<input type="text" name="resume" placeholder="" required="" value="{{student.resume}}"
+				readonly="true"/>
+			</span>
+	</li>
+
+	<li>
+		<label class="w3ls-opt">Github<span class="w3ls-star"> * </span></label>	
+			<span class="w3ls-text w3ls-name">
+				<input type="text" name="github" placeholder="" required="" value="{{student.github}}"
+				readonly="true"/>
+			</span>
+	</li>
+
+	<li>
+		<label class="w3ls-opt">Stack Overflow<span class="w3ls-star"> * </span></label>	
+			<span class="w3ls-text w3ls-name">
+				<input type="text" name="stackoverflow" placeholder="" required="" value="{{student.stackoverflow}}"
+				readonly="true"/>
+			</span>
+	</li>
+
 	<li>
 		<label class="w3ls-opt">Interests and Strengths <span class="w3ls-star"> * </span> </label>
 		<div class="boxes">
@@ -131,6 +156,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 		-->
 		</div>
 	</li>
+
 	<li>
 		<label class="w3ls-opt">Work Experience</label>
 		<div class="input">
@@ -143,7 +169,17 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<span class="w3ls-input"><textarea placeholder="Tell us something interesting about yourself" readonly="true">{{student.about}}</textarea></span>
 		</div>
 	</li>
-	
+<!--
+	<li>
+		<label class="w3ls-opt">Status <span class="w3ls-star"> * </span> </label>
+		<span	{% if student.available %}
+		  		<input type="text" name="" id="box-1" value="Available" >
+		  	{% else %}
+		  		<input type="text" name="" id="box-1" value="Unavailable" >
+		  	{% endif %}
+		
+	</li>
+-->
 </ul>
 <div class="clear"></div>
 <a href="/internships/accounts/edit/">
