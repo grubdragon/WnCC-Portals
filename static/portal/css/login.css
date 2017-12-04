@@ -260,7 +260,7 @@ a:hover {
 }
 
 select,
-input[name="username"],
+input[type="email"],
 input[type="text"],
 input[type=password],
 input[type="button"],
@@ -338,7 +338,7 @@ h2.sub-heading-wthree {
 }
 
 .form-right-w3ls input[type="password"],
-.form-left-w3l input[name="username"] {
+.form-left-w3l input[type="email"] {
     width: 100%;
     color: #000;
     outline: none;
@@ -394,7 +394,7 @@ h2.sub-heading-wthree {
     color: #000;
 }
 
-input[type=submit] {
+button[type=submit] {
     width: 47%;
     background: #000;
     outline: none;
@@ -414,7 +414,7 @@ input[type=submit] {
     -ms-transition: 0.5s all;
 }
 
-input[type=submit]:hover {
+button:hover {
     color: #000;
     background: #fff;
 }
@@ -539,7 +539,7 @@ span.fa {
         width: 30%;
         margin: 42px auto 53px;
     }
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         margin: 0px 0px 19px;
     }
     .header-social ul li a {
@@ -561,7 +561,7 @@ span.fa {
         margin: 30px auto 27px;
         width: 25%;
     }
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         margin: 0px 0px 16px;
     }
     .header-social ul li a {
@@ -621,10 +621,10 @@ span.fa {
         font-size: 15px;
     }
     .form-right-w3ls input[type="password"],
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         font-size: 15px;
     }
-    input[type=submit] {
+    button[type=submit] {
         font-size: 15px;
     }
     input.checked {
@@ -663,7 +663,7 @@ span.fa {
         font-size: 36px;
         margin-bottom: 39px;
     }
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         margin: 0px 0px 26px;
     }
     .btnn {
@@ -702,7 +702,7 @@ span.fa {
     .copy p {
         letter-spacing: 1px;
     }
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         margin: 0px 0px 15px;
     }
 }
@@ -768,7 +768,7 @@ span.fa {
         font-size: 30px;
     }
     .form-right-w3ls input[type="password"],
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         padding: 0.6em 1em;
     }
     .header-social ul li a {
@@ -812,7 +812,7 @@ span.fa {
         width: 78%;
     }
     .form-right-w3ls input[type="password"],
-    .form-left-w3l input[type="text"] {
+    .form-left-w3l input[type="email"] {
         font-size: 14px;
     }
     .copy p {

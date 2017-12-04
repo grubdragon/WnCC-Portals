@@ -2,7 +2,8 @@ from django import forms
 from django.contrib.auth.models import User
 from models import Student,Tag
 from django.utils.translation import ugettext_lazy as _
- 
+from django.contrib.auth import authenticate
+
 '''
  #Form for  Registration
 class RegistrationForm(forms.Form):
@@ -88,3 +89,20 @@ class StudentForm(forms.ModelForm):
         else:
             return self.cleaned_data['email']
         
+class CompanyLoginForm(forms.Form):
+    username = forms.CharField(max_length=100)
+    password = forms.CharField(widget=forms.PasswordInput(render_value=False),max_length=100)
+    
+    def clean(self):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if not user or not user.is_active:
+            raise forms.ValidationError("Sorry, that login was invalid. Please try again.")
+        return self.cleaned_data
+
+    def login(self, request):
+        username = self.cleaned_data.get('username')
+        password = self.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        return user

@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from forms import StudentForm
+from forms import StudentForm, CompanyLoginForm
 from models import Student,Tag
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render,reverse,redirect
 from django.views.decorators.csrf import csrf_protect
+from django.contrib.auth import login
 
 # Create your views here.
 
@@ -34,8 +35,17 @@ def profile(request):
         form = StudentForm(instance=student)
         return render(request , 'profile.html',{'student':student})
 
+@csrf_protect
 def index(request):
-    return render(request,'login.html')
+    form = CompanyLoginForm(request.POST or None)
+    if request.POST and form.is_valid():
+        user = form.login(request)
+        if user:
+            login(request, user)
+            #Redirect to student view page
+            return render(request,'reg.html')
+
+    return render(request,'login.html',{'form':CompanyLoginForm})
 
 @login_required
 def edit(request):
