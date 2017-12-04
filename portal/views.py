@@ -7,6 +7,9 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render,reverse,redirect
 from django.views.decorators.csrf import csrf_protect
 from django.contrib.auth import login
+from django.http import HttpResponseRedirect
+from django.views.generic.list import ListView
+from django.utils import timezone
 
 # Create your views here.
 
@@ -20,7 +23,6 @@ def profile(request):
     if request.method == 'POST':
         student = get_object_or_404(Student,name=name,email=email,mode_of_login='G')
         form = StudentForm(request.POST, instance=student)
-        print request.POST
         #return render(request , 'reg.html',{'form':form})
         if form.is_valid():
             form.save()
@@ -43,7 +45,7 @@ def index(request):
         if user:
             login(request, user)
             #Redirect to student view page
-            return render(request,'reg.html')
+            return HttpResponseRedirect('/admin/portal/student')
 
     return render(request,'login.html',{'form':CompanyLoginForm})
 
