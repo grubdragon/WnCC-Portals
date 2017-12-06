@@ -13,6 +13,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <meta name="keywords" content="effective application form a Flat Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
 function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Meta tag Keywords -->
 <link href="css/form.css" rel="stylesheet" type="text/css" media="all"/><!--style_sheet-->
 <link href="//fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"><!--online_fonts-->
@@ -50,6 +51,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 			<span class="w3ls-text w3ls-name">
 				<input type="text" name="phone number" placeholder="Which college are you from?" required=""/>
 			</span>
+			<li style="float: right;"><input type="checkbox" name="text1" value="value1" /><label for="text1">IIT Bombay</label></li>
 	</li>
 	<li>
 		<label class="w3ls-opt">Program<span class="w3ls-star"> * </span></label>	
@@ -72,20 +74,63 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 	<li>
 		<label class="w3ls-opt">Year<span class="w3ls-star"> * </span></label>	
 			<span class="w3ls-text w3ls-name">
-				<input type="text" name="phone number" value="First" placeholder="Which Year are you in? (First, Second, Third..)" required=""/>
+				<input type="text" name="phone number" placeholder="Which Year are you in? (First, Second, Third..)" required=""/>
 			</span>
 	</li>
 	<li>
 		<label class="w3ls-opt">Interests and Strengths <span class="w3ls-star"> * </span> </label>
 		<div class="boxes">
-		  <input type="checkbox" id="box-1">
-		  <label for="box-1">Web Development</label>
+		<ul class="checkbox-grid">
+    		<li>
+    		<label class="container">Android
+  				<input type="checkbox" checked="checked">
+ 			    <span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+				<label class="container">Fuck Off
+    			<input type="checkbox">
+  				<span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+				<label class="container">Machine Learning
+   				<input type="checkbox">
+    			<span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+			<label class="container">Nihal
+    		<input type="checkbox">
+    		<span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+    		<label class="container">Sucks
+  				<input type="checkbox" checked="checked">
+ 			    <span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+				<label class="container">Yashvardhan
+    			<input type="checkbox">
+  				<span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+				<label class="container">Didwania
+   				<input type="checkbox">
+    			<span class="checkmark"></span>
+			</label>
+			</li>
+			<li>
+			<label class="container">Hello
+    		<input type="checkbox">
+    		<span class="checkmark"></span>
+			</label>
+			</li>
+		</ul>
 
-		  <input type="checkbox" id="box-2" checked>
-		  <label for="box-2">Android </label>
-
-		  <input type="checkbox" id="box-3">
-		  <label for="box-3">Machine Learning</label>
 		</div>
 	</li>
 	<li>
