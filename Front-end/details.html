@@ -5,6 +5,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 -->
 <!DOCTYPE html>
 <html>
+{% load static %}
 <head>
 <title>You got it!</title>
 <!-- metatags-->
@@ -15,7 +16,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 function hideURLbar(){ window.scrollTo(0,1); } </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!-- Meta tag Keywords -->
-<link href="css/form.css" rel="stylesheet" type="text/css" media="all"/><!--style_sheet-->
+<link href="{% static 'mails/css/form.css' %}" rel="stylesheet" type="text/css" media="all"/>
+<!--<link href="css/form.css" rel="stylesheet" type="text/css" media="all"/>--><!--style_sheet-->
 <link href="//fonts.googleapis.com/css?family=Quicksand" rel="stylesheet"><!--online_fonts-->
 <link href="//fonts.googleapis.com/css?family=Lato" rel="stylesheet"><!--online_fonts-->
 <link href="//fonts.googleapis.com/css?family=Raleway" rel="stylesheet"><!--online_fonts-->
@@ -25,6 +27,7 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <div class="w3ls-main">
 <div class="w3ls-form">
 <form action="#" method="post">
+	{% csrf_token %}
 <ul class="fields">
 	<li>	
 		<label style="width: 100%;
